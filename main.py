@@ -541,9 +541,10 @@ def print_tree(node, indent="", last=True):
     else:
         player = 'Chance'
     # Current node
-    prefix = "    " if last else "│   "
-    print(f"{indent}{'└── ' if last else '├── '}", end="")
-
+    prefix = "    " if last else "|   "
+    connector = "+-- " if last else "|-- "
+    print(f"{indent}{connector}", end="")
+    
     prob = ""
     if not node.is_chance and node.probability is not None:
         prob = node.probability
